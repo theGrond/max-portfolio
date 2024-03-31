@@ -1,0 +1,17 @@
+---
+const { location } = Astro.props;
+---
+
+<div class="nav-links">
+    <a class={location == "index" ? "active" : ""} href="/">Home</a>
+    <a class={location == "work" ? "active" : ""} href="/work/">Work</a>
+    <a class={location == "about" ? "active" : ""} href="/about/">About</a>
+</div>
+
+<style>
+    .active {
+        background-color: #86a8e7;
+        color: #eeeeee;
+        transition: 0.3s;
+    }
+</style>

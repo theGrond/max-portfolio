@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+
+const { height, path, darkPath } = Astro.props
+
+---
+
+<div class="tech" transition:animate="slide">
+    <Image class="tech-image" src={path} alt="" height={height}/>
+    <Image class="dark-image" src={darkPath != null ? darkPath : path} alt="" height={height}/>
+</div>
+<style is:global define:vars={{ path, darkPath }}>
+    .tech img{
+        max-width:20vw;
+        height: auto;
+        filter: opacity(80%);
+        transition: 0.2s;
+    }
+    .tech img:hover{
+        filter: opacity(100%);
+        transition: 0.2s;
+    }
+    .tech{
+        margin:20px;
+        background-color: rgb(212, 220, 249);
+        border-radius: 20px;
+        padding: 10px 20px 5px 20px;
+        transition: 0.2s;
+    }
+    .tech:hover{
+        filter: blur(0px);
+        margin-top:10px;
+        margin-bottom:30px;
+        transition: 0.2s;
+        /* border-color: #6c89a0; */
+        /* box-shadow: 0 0px 5px #5880a1; */
+    }
+    .dark .tech{
+        /* border: 1px solid #86a8e7; */
+        background-color: rgb(23, 24, 28);
+        /* background-color: transparent; */
+    }
+
+    .dark .tech-image{
+        display: none;
+    }
+    .dark-image{
+        display: none;
+    }
+    .dark .dark-image{
+        display: unset;
+    }
+    
+</style>
+

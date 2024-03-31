@@ -1,0 +1,55 @@
+---
+import Navigation from "./Navigation.astro";
+import Hamburger from "./Hamburger.astro";
+import ThemeIcon from "./ThemeIcon.astro";
+
+import { Image } from "astro:assets";
+import logoDarkPath from '../images/logos/mg-logo-light.png';
+import logoLightPath from '../images/logos/mg-logo-dark.png';
+
+const { location } = Astro.props
+---
+
+<nav>
+    <Hamburger />
+    <div class="logo-title">
+        <Image class="logo" src={logoDarkPath} alt="" height={35} />
+        <Image class="logoLight" src={logoLightPath} alt="" height={35} />
+        <span class="title">Max Gohlke</span>
+    </div>
+    <Navigation {location}/>
+    <ThemeIcon />
+</nav>
+
+<style is:global>
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo{
+        display: none;
+        margin-top:10px;
+        margin-bottom:-6px;
+    }
+    .dark .logo{
+        display: unset;
+    }
+    .logoLight{
+        display: unset;
+        opacity: 80%;
+        margin-top: 10px;
+        margin-bottom: -6px;
+    }
+    .dark .logoLight{
+        display: none;
+    }
+    .title {
+        font-size: xx-large;
+        font-weight: 200;
+        /* margin-top: -20px; */
+        margin-left: 10px;
+    }
+    .disable{
+        display: none;
+    }
+</style>
