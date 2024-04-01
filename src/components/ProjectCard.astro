@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
 
-const { height, path, darkPath } = Astro.props;
-import flutterPath from '../images/technologies/flutter_dark.png';
+const { height, path, darkPath, duration } = Astro.props;
+import flutterPath from '../images/project-images/question-answering.png';
+import { slide } from "astro:transitions";
 
 ---
 
-<div class="tech" transition:animate="slide">
-    <Image class="tech-image" src={flutterPath} alt="" height={50} />
+<div class="tech" transition:animate={slide({ duration: duration })}>
+    <Image class="tech-image" src={flutterPath} alt="" height={330} />
     <slot />
 </div>
 
@@ -16,7 +17,7 @@ import flutterPath from '../images/technologies/flutter_dark.png';
         margin: 20px;
         background-color: rgb(212, 220, 249);
         border-radius: 20px;
-        padding: 10px 20px 5px 20px;
+        padding: 10px 10px 5px 10px;
         transition: 0.2s;
     }
     .tech:hover {
@@ -31,5 +32,10 @@ import flutterPath from '../images/technologies/flutter_dark.png';
         /* border: 1px solid #86a8e7; */
         background-color: rgb(23, 24, 28);
         /* background-color: transparent; */
+    }
+    .tech img{
+        max-width:70vw;
+        height: auto;
+        border-radius: 15px;
     }
 </style>

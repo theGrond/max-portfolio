@@ -1,11 +1,12 @@
 ---
 import { Image } from "astro:assets";
 
-const { height, path, darkPath } = Astro.props
+const { height, path, darkPath, duration } = Astro.props
+import { slide } from "astro:transitions";
 
 ---
 
-<div class="tech" transition:animate="slide">
+<div class="tech" transition:animate={slide({ duration: duration })}>
     <Image class="tech-image" src={path} alt="" height={height}/>
     <Image class="dark-image" src={darkPath != null ? darkPath : path} alt="" height={height}/>
 </div>
