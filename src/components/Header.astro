@@ -4,10 +4,10 @@ import Hamburger from "./Hamburger.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 
 import { Image } from "astro:assets";
-import logoDarkPath from '../images/logos/mg-logo-light.png';
-import logoLightPath from '../images/logos/mg-logo-dark.png';
+import logoDarkPath from "../images/logos/mg-logo-light.png";
+import logoLightPath from "../images/logos/mg-logo-dark.png";
 
-const { location } = Astro.props
+const { location } = Astro.props;
 ---
 
 <nav>
@@ -17,8 +17,10 @@ const { location } = Astro.props
         <Image class="logoLight" src={logoLightPath} alt="" height={35} />
         <span class="title">Max Gohlke</span>
     </div>
-    <Navigation {location}/>
-    <ThemeIcon />
+    <Navigation {location} />
+    <div class="themeIcon">
+        <ThemeIcon />
+    </div>
 </nav>
 
 <style is:global>
@@ -26,30 +28,57 @@ const { location } = Astro.props
         display: flex;
         justify-content: space-between;
     }
-    .logo{
-        display: none;
-        margin-top:10px;
-        margin-bottom:-6px;
+    .logo-title {
+        backdrop-filter: blur(3px);
+        padding: 0px 10px 0px 10px;
+        border-radius: 30px;
+        width: 192px;
     }
-    .dark .logo{
+    .logo {
+        display: none;
+        margin-top: 11px;
+        margin-bottom: -8px;
+        -webkit-filter: drop-shadow(1px 1px 5px #222);
+        filter: drop-shadow(1px 1px 5px #222);
+    }
+    .dark .logo {
         display: unset;
     }
-    .logoLight{
+    .logoLight {
         display: unset;
         opacity: 80%;
         margin-top: 10px;
-        margin-bottom: -6px;
+        margin-bottom: -8px;
     }
-    .dark .logoLight{
+    .dark .logoLight {
         display: none;
     }
     .title {
-        font-size: xx-large;
-        font-weight: 200;
+        font-size: 1.7rem;
+        font-weight: 300;
         /* margin-top: -20px; */
         margin-left: 10px;
+        text-wrap: nowrap;
+        /* color: black; */
+        text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.248);
     }
-    .disable{
+    .dark .title {
+        font-weight: 200;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.702);
+    }
+    .disable {
         display: none;
+    }
+    .themeIcon {
+        display: flex;
+        justify-content: end;
+        width: auto;
+    }
+    @media screen and (min-width: 636px) {
+        .themeIcon {
+            display: flex;
+            justify-content: end;
+            width: 100px;
+        }
     }
 </style>

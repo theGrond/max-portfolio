@@ -22,8 +22,11 @@ const { location } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
+    <div class="bg-image"></div>
     <div class="mainContainer">
-      <Header location={location} />
+      <div class="header">
+        <Header location={location} />
+      </div>
       <main transition:animate="fade">
         <slot />
         <!-- <Footer /> -->
@@ -32,5 +35,16 @@ const { location } = Astro.props;
     <script>
       import "../scripts/menu.js";
     </script>
-  </body>
+  </body><style>
+    .header {
+      z-index: 10;
+      position: fixed;
+      max-width: 80rem;
+      width: 90vw;
+      height: 100px;
+    }
+    main {
+      margin-top: 150px;
+    }
+  </style>
 </html>

@@ -3,9 +3,14 @@ import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 const allPosts = await Astro.glob("../pages/posts/*.md");
+import Pill from "../components/Pill.astro";
+
+import questionAnswering from "../images/project-images/question-answering.png";
+import webScraper from "../images/project-images/web-scraper-ui.jpg";
+import malariaApp from "../images/project-images/malaria-app.png";
+import tcoModell from "../images/project-images/tco-modell.png";
 
 import { slide } from "astro:transitions";
-
 ---
 
 <BaseLayout location="work">
@@ -14,11 +19,58 @@ import { slide } from "astro:transitions";
 		<h1 transition:animate={slide({ duration: "0.6s" })}>Projects</h1>
 		<p>Here you can find some of the projects that I have worked on.</p>
 		<div class="projects">
-			<ProjectCard duration="0.2s"></ProjectCard>
-			<ProjectCard duration="0.4s"></ProjectCard>
-			<ProjectCard duration="0.6s"></ProjectCard>
-			<ProjectCard duration="0.4s"></ProjectCard>
-			<ProjectCard duration="0.2s"></ProjectCard>
+			<ProjectCard
+				title="Question Answering Web Application"
+				path={questionAnswering}
+				duration="0.2s"
+			>
+				<Pill>Python</Pill>
+				<Pill>Flask</Pill>
+				<Pill>HTML/CSS</Pill>
+			</ProjectCard>
+			<ProjectCard
+				title="Malaria Cell Classification App"
+				path={malariaApp}
+				duration="0.4s"
+			>
+				<Pill>Flutter</Pill>
+				<Pill>Tensorflow</Pill>
+				<Pill>Python</Pill>
+			</ProjectCard>
+			<ProjectCard
+				title="Product Information Web Scraper"
+				path={webScraper}
+				duration="0.6s"
+			>
+				<Pill>.NET-Framework</Pill>
+				<Pill>C#</Pill>
+				<Pill>Selenium</Pill>
+				<Pill>WinForms</Pill>
+			</ProjectCard>
+
+			<ProjectCard
+				title="Cloud TCO Calculation Web Application"
+				path={tcoModell}
+				duration="0.4s"
+			>
+				<Pill>React</Pill>
+				<Pill>MongoDB</Pill>
+				<Pill>NodeJS</Pill>
+				<Pill>Express</Pill>
+			</ProjectCard>
+			<ProjectCard
+				title="Mockup Webshop"
+				path={tcoModell}
+				duration="0.2s"
+			>
+				<Pill>React</Pill>
+				<Pill>MongoDB</Pill>
+				<Pill>NodeJS</Pill>
+				<Pill>Express</Pill>
+			</ProjectCard>
+			<!-- <ProjectCard duration="0.6s" />
+			<ProjectCard duration="0.4s" />
+			<ProjectCard duration="0.2s" /> -->
 		</div>
 	</div>
 </BaseLayout>
@@ -31,7 +83,7 @@ import { slide } from "astro:transitions";
 		/* color: #545c76; */
 		/* max-width: 70rem; */
 		/* width: 100%; */
-		min-height:100vh;
+		min-height: 100vh;
 	}
 	h2 {
 		margin-top: 50px;
@@ -47,7 +99,7 @@ import { slide } from "astro:transitions";
 		margin-top: 0px;
 		/* color:rgb(63, 63, 63); */
 	}
-	.projects{
+	.projects {
 		display: flex;
 		flex-wrap: wrap;
 		/* align-items: center; */

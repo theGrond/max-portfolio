@@ -20,11 +20,17 @@ body {
     background-image: linear-gradient(to bottom, rgba(255,0,0,0) 0vh, #EEEEEE 30vh), linear-gradient(to right bottom, #4f72b4, #83baec, #8ccbed, #9edaed, #b6e7ee, #b4e4e7, #b3e0e0, #b2ddd9, #94cac5, #75b7b2, #55a49f, #2e928c);
 }
 
+
 .dark body{
-    background-image: linear-gradient(to bottom, rgba(255,0,0,0) -20vh, #111214 30vh), linear-gradient(to right bottom, #1e3f7e , #44397b, #72407b, #743358, #642333);
+    background-image:  linear-gradient(to bottom, rgba(0, 0, 0, 0.379) 0vh, black 55vh), url("/public/darkback.jpg") ;
+    background-size: 100vmax;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /* background-image: linear-gradient(to bottom, rgba(255,0,0,0) -20vh, #111214 30vh), linear-gradient(to right bottom, #1e3f7e , #44397b, #72407b, #743358, #642333); */
 }
 
 .mainContainer{
+    
     margin: 0 auto;
     width: 100%;
     max-width: 80rem;
@@ -71,7 +77,7 @@ h1 {
 }
 
 .hamburger:hover .line {
-    background-color: #EEEEEE;
+    background-color: #51668d;
     transition: 0.1s;
 }
 
@@ -86,8 +92,11 @@ h1 {
     left: 0px;
     display: none;
     margin: 0;
-    border-radius: 50rem;
+    border-radius: 30px;
     height: 150px;
+    backdrop-filter: blur(3px);
+    padding: 10px 20px 0px 20px;
+    
 
 }
   
@@ -102,8 +111,14 @@ h1 {
     font-weight: 400;
     text-transform: uppercase;
     color: #222831;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.248);
+    mix-blend-mode: difference;
     width: 80px;
     transition: 0.3s;
+}
+
+.dark .nav-links a {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.702);
 }
   
 .nav-links a:hover,
@@ -113,10 +128,10 @@ h1 {
     transition: 0.3s;
 }
 
-@keyframes example {
+/* @keyframes example {
     from {height: 100px;}
     to {height: 150px;}
-}
+} */
   
 .expanded {
     display: unset;
@@ -128,6 +143,7 @@ h1 {
   
 @media screen and (min-width: 636px) {
     .nav-links {
+        padding: unset;
         /* margin-left: 5em; */
         text-align: center;
         display: block;
@@ -136,6 +152,8 @@ h1 {
         width: auto;
         padding-left: 6px;
         padding-right: 6px;
+        /* background-color: #a3d9ed48; */
+        backdrop-filter: blur(5px);
         /* background-color: #EEEEEE; */
         /* border: 1px solid #EEEEEE; */
         border: solid 1px #385c9d;
@@ -145,6 +163,7 @@ h1 {
         border: 1px solid #86a8e7;
         
         background-color: transparent;
+        /* background-color: #0000001a; */
         /* background-color: #222831; */
     }    
   
